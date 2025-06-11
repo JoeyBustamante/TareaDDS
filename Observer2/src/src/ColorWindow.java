@@ -8,7 +8,7 @@ public class ColorWindow extends JFrame {
 
     public ColorWindow() {
         setTitle("Cambiar color de fondo");
-        setSize(400, 300);
+        setSize(400, 300); // ← aquí estaba el error, ya corregido
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
