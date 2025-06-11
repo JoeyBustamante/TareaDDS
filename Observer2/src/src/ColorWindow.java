@@ -19,9 +19,9 @@ public class ColorWindow extends JFrame {
         JButton btnVerde = new JButton("Verde");
         JButton btnAzul = new JButton("Azul");
 
-        btnRojo.addActionListener(new ColorChanger(panel, Color.RED, "Rojo"));
-        btnVerde.addActionListener(new ColorChanger(panel, Color.GREEN, "Verde"));
-        btnAzul.addActionListener(new ColorChanger(panel, Color.BLUE, "Azul"));
+        btnRojo.addActionListener(e -> setBackgroundColor(Color.RED));
+        btnVerde.addActionListener(e -> setBackgroundColor(Color.GREEN));
+        btnAzul.addActionListener(e -> setBackgroundColor(Color.BLUE));
 
         panel.add(btnRojo);
         panel.add(btnVerde);
@@ -29,6 +29,24 @@ public class ColorWindow extends JFrame {
 
         add(panel);
     }
+    
+    public void setBackgroundColor(Color color) {
+        panel.setBackground(color);
+        System.out.println("Color cambiado a => " + getColorName(color));
+    }
+    
+    public String getColorName(Color color) {
+        if (Color.RED.equals(color)) {
+            return "Rojo";
+        } else if (Color.GREEN.equals(color)) {
+            return "Verde";
+        } else if (Color.BLUE.equals(color)) {
+            return "Azul";
+        } else {
+            return "Desconocido";
+        }
+    }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
